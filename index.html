@@ -5,9 +5,6 @@
 <meta name="theme-color" content="#3e1f2e">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>ЛАКОМАНЬЯК — Рекламная акция ЛУИФИЛИПП</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --accent: #623949;
@@ -27,7 +24,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     background: var(--accent-deep); 
     color: var(--text);
@@ -53,13 +50,12 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    background: var(--accent-deep); /* Основной фон шапки */
+    background: var(--accent-deep);
   }
 
-  /* Фоновое изображение. Когда добавите свое фото, замените ссылку ниже на url('ваше-фото.jpg') */
   .hero-bg-img {
     position: absolute;
-    top: 0%; /* Начинается примерно от надписи */
+    top: 0%;
     left: 0; 
     right: 0; 
     bottom: 0;
@@ -70,13 +66,11 @@
     z-index: 0;
   }
 
-  /* Плавный градиент-переход от сплошного цвета к фото */
   .hero-bg-img::before {
     content: '';
     position: absolute;
     top: -10px; left: 0; right: 0; height: 700px;
     background: linear-gradient(to bottom, var(--accent-deep) 0%, rgba(62, 31, 46, 0) 90%, rgba(62, 31, 46, 0) 100%);
-    
   }
 
   .hero-content {
@@ -178,7 +172,7 @@
   .overlap-section {
     position: relative;
     z-index: 10;
-    margin-top: -60px; /* Наплывает на первый экран */
+    margin-top: -60px;
     background: var(--bg);
     border-radius: 32px 32px 0 0;
     padding: 40px 20px;
@@ -422,7 +416,7 @@
     width: 100%;
     padding: 15px 20px;
     border-radius: 14px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: inherit;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
@@ -658,7 +652,7 @@
     margin: 0 20px;
   }
 
-  /* ─── НОВЫЕ СТИЛИ ДЛЯ ЦВЕТНЫХ ПЛАШЕК И ГЛАВНОГО ПРИЗА ─── */
+  /* ─── ЦВЕТНЫЕ ПЛАШКИ И ГЛАВНЫЙ ПРИЗ ─── */
   .color-chip {
     display: inline-flex;
     align-items: center;
@@ -769,7 +763,6 @@
  
   <div class="hr"></div>
 
-  <!-- ══════════ ПЕРЕРАБОТАННЫЙ БЛОК ПРИЗОВ ══════════ -->
   <section class="prizes-section">
     <p class="section-title">Всего 500 купонов<br>Три уровня выигрыша</p>
     <p class="section-desc" style="margin-bottom:28px;">3 главных приза · 15 наборов · 482 промокода</p>
@@ -811,7 +804,6 @@
       </div>
     </div>
   </section>
-
 
   <section class="get-section">
     <p class="section-title">Как забрать приз?</p>
@@ -913,8 +905,11 @@
   </section>
 
   <footer class="footer">
-    <div class="footer-org">Организатор: ООО «ЛУИ ГРУПП» · ИНН 6167201153</div>
+    <div class="footer-org">Реклама. ООО «ЛУИ ГРУПП» · ИНН 6167201153</div>
     <div class="footer-legal">Акция носит рекламный характер и&nbsp;не&nbsp;является лотереей. Покупка товара не&nbsp;является платой за&nbsp;участие. Сроки проведения акции и&nbsp;иные условия могут быть уточнены у&nbsp;продавца.</div>
+    <div style="margin-top: 12px; font-size: 11px;">
+      <a href="#" onclick="document.getElementById('privacyModal').style.display='flex'; return false;" style="color: rgba(255,255,255,0.35); text-decoration: underline;">Политика конфиденциальности</a>
+    </div>
   </footer>
 
 </div>
@@ -983,6 +978,32 @@
       
       <h3>9. Контактная информация</h3>
       <p>По вопросам участия в Акции: luiphilipp-gel@yandex.ru<br>+7 989 629 8628</p>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно Политики конфиденциальности -->
+<div id="privacyModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('privacyModal').style.display='none'">✕</button>
+    <div class="modal-body">
+      <h2 class="section-title" style="text-align:center; margin-bottom:16px;">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h2>
+      <p>Настоящая Политика конфиденциальности действует в отношении информации, которую сайт акции «ЛАКОМАНЬЯК» (далее — Сайт) может получить о Пользователе во время просмотра Сайта.</p>
+      
+      <h3>1. Сбор и обработка персональных данных</h3>
+      <p>1.1. Сайт не собирает, не хранит и не обрабатывает персональные данные Пользователей. На Сайте отсутствуют формы регистрации, сбора электронных адресов, файлы cookie, сервисы аналитики и иные инструменты, позволяющие идентифицировать Пользователя.</p>
+      <p>1.2. Любая информация, которую Пользователь передаёт третьим лицам (Telegram, MAX, Wildberries, интернет-магазин luiphilipp-gel.ru) при переходе по размещённым на Сайте ссылкам, обрабатывается в соответствии с политиками конфиденциальности соответствующих сервисов. Сайт не несёт ответственности за обработку данных этими сервисами.</p>
+      
+      <h3>2. Техническая информация, передаваемая автоматически</h3>
+      <p>2.1. При загрузке Сайта ваш браузер может автоматически передавать хостинг-провайдеру технические данные (IP‑адрес, версия браузера, язык и т.п.), что необходимо для технического функционирования любого веб‑сайта. Эти данные не используются для идентификации Пользователя и не сохраняются Администрацией Сайта.</p>
+      <p>2.2. Часть контента (изображения, стили) может быть загружена с внешних серверов. Пользователь может настроить свой браузер для блокировки таких запросов, однако это может повлиять на отображение страницы. Рекомендуем размещать весь контент на российских серверах для минимизации трансграничной передачи данных.</p>
+      
+      <h3>3. Правовое основание</h3>
+      <p>3.1. Сайт соблюдает Федеральный закон от 27.07.2006 № 152‑ФЗ «О персональных данных» и иные применимые нормативные акты Российской Федерации. Поскольку Сайт не собирает персональные данные, согласие Пользователя на обработку ПДн не требуется.</p>
+      
+      <h3>4. Изменения и контакты</h3>
+      <p>4.1. Политика может быть изменена без предварительного уведомления Пользователей. Актуальная версия всегда доступна на Сайте.</p>
+      <p>4.2. Контакты администратора: luiphilipp-gel@yandex.ru</p>
     </div>
   </div>
 </div>
