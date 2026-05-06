@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#3e1f2e">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ЛАКОМАНЬЯК — Рекламная акция ЛУИФИЛИПП</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #623949;
+    --accent-light: #8b5569;
+    --accent-deep: #3e1f2e;
+    --accent-glow: rgba(98, 57, 73, 0.15);
+    --bg: #fdf3f4;
+    --bg-soft: #f8e8eb;
+    --bg-card: #ffffff;
+    --text: #2a1520;
+    --text-muted: #7a5060;
+    --badge-bg: #623949;
+    --badge-text: #fff;
+    --divider: rgba(98,57,73,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background: var(--accent-deep); 
+    color: var(--text);
+  }
+
+  .app-wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--bg);
+    min-height: 100vh;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100svh;
+    position: relative;
+    padding: 40px 24px 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    background: var(--accent-deep); /* Основной фон шапки */
+  }
+
+  /* Фоновое изображение. Когда добавите свое фото, замените ссылку ниже на url('ваше-фото.jpg') */
+  .hero-bg-img {
+    position: absolute;
+    top: 0%; /* Начинается примерно от надписи */
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background-image: url('https://i.postimg.cc/q7dLLfTy/7912deb78404a56f033aecabc374e9ed-51ad6d7a-e74a-4be0-a8dc-eadc953bd268.jpg'); 
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  /* Плавный градиент-переход от сплошного цвета к фото */
+  .hero-bg-img::before {
+    content: '';
+    position: absolute;
+    top: -10px; left: 0; right: 0; height: 700px;
+    background: linear-gradient(to bottom, var(--accent-deep) 0%, rgba(62, 31, 46, 0) 90%, rgba(62, 31, 46, 0) 100%);
+    
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.08);
+    padding: 5px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.12);
+    align-self: flex-start;
+  }
+
+  .hero-brand {
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 10vw, 46px);
+    font-weight: 600;
+    color: #fdf3f4; 
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    margin-bottom: 12px;
+    word-break: break-word;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.55;
+    margin-bottom: auto;
+  }
+
+  .hero-prize-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(245,184,200,0.15) 0%, rgba(255,255,255,0.05) 100%);
+    border: 1px solid rgba(245,184,200,0.35);
+    border-radius: 24px;
+    padding: 24px 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  }
+
+  .hero-prize-count .num {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    text-shadow: 0 4px 12px rgba(245,184,200,0.3);
+  }
+
+  .hero-prize-count .desc {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.4;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: bounce 2s infinite ease-in-out;
+    color: rgba(255,255,255,0.8);
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-10px) translateX(-50%); }
+    60% { transform: translateY(-5px) translateX(-50%); }
+  }
+
+  /* ─── OVERLAP SECTION ─── */
+  .overlap-section {
+    position: relative;
+    z-index: 10;
+    margin-top: -60px; /* Наплывает на первый экран */
+    background: var(--bg);
+    border-radius: 32px 32px 0 0;
+    padding: 40px 20px;
+    box-shadow: 0 -15px 40px rgba(98, 57, 73, 0.25); 
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--accent-deep);
+    margin-bottom: 6px;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .badge-soft {
+    background: var(--bg-soft);
+    color: var(--accent);
+    border: 1px solid rgba(98,57,73,0.15);
+  }
+
+  .badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--bg-card);
+    border-radius: 18px;
+    padding: 18px 18px;
+    box-shadow: 0 2px 12px rgba(98,57,73,0.07);
+    border: 1px solid var(--divider);
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .step-content .step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-deep);
+    margin-bottom: 2px;
+  }
+
+  .step-content .step-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .prizes-section {
+    background: var(--accent-deep);
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .prizes-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(139,85,105,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .prizes-section .section-title {
+    color: #fff;
+  }
+
+  .prizes-section .section-desc {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .prize-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 22px 20px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .prize-card.main {
+    background: linear-gradient(135deg, rgba(245,184,200,0.15) 0%, rgba(255,255,255,0.08) 100%);
+    border-color: rgba(245,184,200,0.3);
+  }
+
+  .prize-card .prize-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-bottom: 10px;
+  }
+
+  .prize-card.main .prize-tag {
+    background: #f5b8c8;
+    color: var(--accent-deep);
+  }
+
+  .prize-card:not(.main) .prize-tag {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.8);
+  }
+
+  .prize-card .prize-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .prize-card .prize-detail {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .prize-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .prize-badge {
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+  }
+
+  .prize-card.main .prize-badge {
+    background: rgba(245,184,200,0.2);
+    color: #f5b8c8;
+  }
+
+  .prize-count-chip {
+    position: absolute;
+    top: 18px; right: 18px;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.08);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .get-section {
+    padding: 40px 20px;
+  }
+
+  .get-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 24px 20px;
+    margin-bottom: 14px;
+    border: 1px solid var(--divider);
+    box-shadow: 0 2px 16px rgba(98,57,73,0.06);
+  }
+
+  .get-card .get-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: var(--bg-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .get-card .get-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent-deep);
+    margin-bottom: 8px;
+  }
+
+  .get-card .get-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.15s, transform 0.15s;
+    gap: 8px;
+  }
+
+  .btn:active {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+  }
+
+  .btn-wb {
+    background: #623949;
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 12px;
+    border-radius: 12px;
+    margin-top: 10px;
+    display: inline-flex;
+    text-decoration: none;
+    width: auto;
+  }
+
+  .buttons-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--divider);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .contact-row:last-child {
+    border-bottom: none;
+  }
+
+  .contact-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: var(--bg-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-deep);
+  }
+
+  .rules-section {
+    background: var(--bg-soft);
+    padding: 32px 20px;
+  }
+
+  .rules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rule-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .rule-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .rule-text {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* ─── MODAL ─── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(42, 21, 32, 0.8);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-content {
+    background: var(--bg);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 440px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 30px 24px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-soft);
+    border: none;
+    color: var(--accent);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .modal-body h3 {
+    font-size: 16px;
+    color: var(--accent-deep);
+    margin: 20px 0 10px;
+  }
+  
+  .modal-body p, .modal-body li {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  
+  .modal-body ul {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+
+  .dates-strip {
+    background: var(--accent);
+    padding: 20px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .date-item {
+    text-align: center;
+  }
+
+  .date-item .date-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 3px;
+  }
+
+  .date-item .date-val {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .date-sep {
+    color: rgba(255,255,255,0.25);
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .footer {
+    padding: 28px 20px 40px;
+    background: var(--accent-deep);
+  }
+
+  .footer-org {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+  }
+
+  .footer-legal {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.6;
+  }
+
+  .hr {
+    height: 1px;
+    background: var(--divider);
+    margin: 0 20px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-label, .hero-brand, .hero-title, .hero-sub, .hero-prize-count {
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-label    { animation-delay: 0.05s; }
+  .hero-brand    { animation-delay: 0.1s; }
+  .hero-title    { animation-delay: 0.18s; }
+  .hero-sub      { animation-delay: 0.26s; }
+  .hero-prize-count { animation-delay: 0.34s; }
+</style>
+</head>
+<body>
+
+<div class="app-wrapper">
+
+  <section class="hero">
+    
+    <div class="hero-bg-img"></div>
+    
+    <div class="hero-content">
+      <div class="hero-label">Рекламная акция</div>
+      <div class="hero-brand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360.86 43.97" height="20" style="display:block;width:auto;max-width:100%;">
+          <g fill="#fdf3f4">
+            <path d="M7.56,38.78c-.39,1.14-1,2.19-1.84,3.15-.83.96-2.06,1.45-3.69,1.45H0v-.66c.26,0,.61-.08,1.06-.24.43-.15.89-.41,1.37-.75.48-.35.96-.8,1.45-1.34.48-.55.89-1.24,1.25-2.07L17.55,4.27c.22-.66.33-1.16.33-1.51,0-.67-.18-1.17-.56-1.55-.37-.37-.75-.55-1.15-.55v-.66h5.39l14.73,40.22c.22.62.64,1.17,1.25,1.68.61.51,1.29.78,2.04.83v.66h-9.4v-.66c.35,0,.71-.15,1.09-.43.37-.29.55-.67.55-1.15,0-.13-.04-.33-.13-.59L19.32,6.51,7.56,38.78Z"/><path d="M36.87,0h9.13v.66h-.39c-.48,0-.81.14-.98.42-.18.29-.27.58-.27.89,0,.21.02.41.07.59.04.18.09.3.13.39l11.25,24.58,10.06-23.86c.04-.09.1-.27.19-.56.09-.28.13-.55.13-.82,0-.61-.22-1.04-.66-1.28-.44-.24-.77-.36-.98-.36V0h7.03v.66c-.78,0-1.39.21-1.8.63-.42.41-.74.84-.95,1.28l-15.77,37.72c-.52,1.27-1.23,2.2-2.11,2.79-.87.6-1.82.89-2.82.89-.66,0-1.25-.1-1.77-.3-.52-.2-.99-.43-1.38-.69-.4-.27-.79-.61-1.18-1.05l1.64-3.61c.35.83.81,1.48,1.38,1.94.57.46,1.16.69,1.77.69.4,0,.8-.14,1.22-.42.41-.29.78-.74,1.08-1.35l2.57-6.24L39.76,2.76c-.61-1.32-1.57-2.02-2.89-2.11V0Z"/><path d="M101.28,42.72h.33c.35,0,.66-.12.92-.36.26-.24.5-.55.69-.92.2-.37.34-.76.43-1.17.09-.42.13-.81.13-1.15V9l-21.82,29.51v.59c0,.35.05.73.16,1.15.11.41.25.8.43,1.15.18.35.39.66.66.92.27.26.57.39.92.39h.33v.66h-9.33v-.66h.33c.35,0,.66-.12.92-.36.26-.24.5-.55.69-.92.2-.37.34-.76.43-1.17.09-.42.13-.81.13-1.15V4.07c0-.3-.04-.66-.13-1.05-.09-.4-.23-.77-.43-1.12-.19-.35-.43-.65-.69-.89-.26-.24-.57-.35-.92-.35h-.33V0h9.33v.66h-.52c-.31.04-.58.19-.82.46-.24.26-.45.56-.63.89-.17.33-.3.68-.39,1.05-.09.37-.13.72-.13,1.02v30.37l21.82-29.52v-.85c0-.3-.04-.66-.13-1.05-.09-.4-.23-.77-.43-1.12-.19-.35-.43-.65-.69-.89-.27-.24-.57-.35-.92-.35h-.33V0h9.33v.66h-.33c-.35,0-.66.12-.92.35-.26.24-.48.54-.66.89-.17.35-.32.72-.42,1.12-.12.39-.17.75-.17,1.05v35.03c0,.35.05.72.17,1.12.1.4.25.78.42,1.15.18.37.4.69.66.95.27.26.57.39.92.39h.33v.66h-9.33v-.66Z"/><path d="M136.13,0h9.27v.66h-.52c-.31.04-.58.2-.83.47-.24.26-.44.56-.62.92-.18.35-.31.73-.4,1.15-.09.42-.13.78-.13,1.09v.33c3.03.09,5.78.58,8.25,1.48,2.48.89,4.61,2.11,6.41,3.64,1.8,1.54,3.19,3.32,4.17,5.36.99,2.04,1.48,4.24,1.48,6.61,0,2.59-.56,4.93-1.67,7.03-1.12,2.11-2.62,3.9-4.51,5.39-1.88,1.49-4.04,2.67-6.47,3.52-2.43.86-4.99,1.31-7.66,1.35v.33c0,.3.04.66.13,1.06.09.39.24.76.43,1.11.2.35.43.65.69.89.26.24.57.36.92.36h.33v.66h-9.27v-.66h.33c.3,0,.6-.13.89-.36.28-.24.52-.54.69-.89.17-.35.31-.72.42-1.12.11-.39.17-.75.17-1.05v-.33c-3.07-.09-5.85-.58-8.35-1.48-2.5-.89-4.63-2.12-6.41-3.68-1.78-1.54-3.15-3.35-4.15-5.41-.98-2.05-1.48-4.29-1.48-6.69,0-2.54.54-4.85,1.61-6.93,1.08-2.08,2.53-3.84,4.37-5.31,1.85-1.46,4-2.61,6.48-3.44,2.48-.83,5.11-1.29,7.92-1.38v-.33c0-.32-.06-.68-.17-1.1-.11-.42-.25-.81-.42-1.17-.18-.35-.4-.66-.67-.93-.26-.27-.55-.43-.85-.47h-.39V0ZM122.52,21.03c0,1.93.45,3.83,1.35,5.69.89,1.86,2.09,3.52,3.58,4.99,1.49,1.47,3.2,2.66,5.13,3.58,1.93.92,3.95,1.43,6.05,1.51V6.77c-2.63.04-4.96.5-6.97,1.38-2.02.88-3.71,1.98-5.07,3.32-1.35,1.34-2.37,2.85-3.05,4.54-.68,1.68-1.02,3.36-1.02,5.02M158.86,22.41c0-1.93-.41-3.81-1.25-5.65-.83-1.84-1.97-3.48-3.42-4.93-1.44-1.44-3.13-2.62-5.05-3.52-1.93-.89-4.01-1.39-6.25-1.48v30.04c2.46-.09,4.67-.56,6.64-1.41,1.97-.86,3.64-1.95,5.03-3.29,1.37-1.34,2.44-2.84,3.18-4.54.75-1.68,1.12-3.43,1.12-5.22"/><path d="M192.61,42.72h.33c.35,0,.66-.12.92-.36.26-.24.5-.55.69-.92.2-.37.34-.76.43-1.17.09-.42.13-.81.13-1.15V9l-21.82,29.51v.59c0,.35.05.73.16,1.15.11.41.25.8.43,1.15.18.35.39.66.66.92.27.26.57.39.92.39h.33v.66h-9.33v-.66h.33c.35,0,.66-.12.92-.36.26-.24.5-.55.69-.92.2-.37.34-.76.43-1.17.09-.42.13-.81.13-1.15V4.07c0-.3-.04-.66-.13-1.05-.09-.4-.23-.77-.43-1.12-.19-.35-.43-.65-.69-.89-.26-.24-.57-.35-.92-.35h-.33V0h9.33v.66h-.52c-.31.04-.58.19-.82.46-.24.26-.45.56-.63.89-.17.33-.3.68-.39,1.05-.09.37-.13.72-.13,1.02v30.37l21.82-29.52v-.85c0-.3-.04-.66-.13-1.05-.09-.4-.23-.77-.43-1.12-.19-.35-.43-.65-.69-.89-.27-.24-.57-.35-.92-.35h-.33V0h9.33v.66h-.33c-.35,0-.66.12-.92.35-.26.24-.48.54-.66.89-.17.35-.32.72-.42,1.12-.12.39-.17.75-.17,1.05v35.03c0,.35.05.72.17,1.12.1.4.25.78.42,1.15.18.37.4.69.66.95.27.26.57.39.92.39h.33v.66h-9.33v-.66Z"/><path d="M213.77,38.78c-.39,1.14-1,2.19-1.84,3.15-.83.96-2.06,1.45-3.69,1.45h-2.03v-.66c.26,0,.61-.08,1.06-.24.43-.15.89-.41,1.37-.75.48-.35.96-.8,1.45-1.34.48-.55.89-1.24,1.25-2.07l12.42-34.05c.22-.66.33-1.16.33-1.51,0-.67-.18-1.17-.56-1.55-.37-.37-.75-.55-1.15-.55v-.66h5.39l14.73,40.22c.22.62.64,1.17,1.25,1.68.61.51,1.29.78,2.04.83v.66h-9.4v-.66c.35,0,.71-.15,1.09-.43.37-.29.55-.67.55-1.15,0-.13-.04-.33-.13-.59l-12.35-34.04-11.76,32.27Z"/><path d="M276.8,42.72h.33c.35,0,.66-.12.92-.36.26-.24.5-.55.69-.92.2-.37.34-.76.43-1.17.09-.42.13-.81.13-1.15V9l-21.82,29.51v.59c0,.35.05.73.16,1.15.11.41.25.8.43,1.15.18.35.39.66.66.92.27.26.57.39.92.39h.33v.66h-9.33v-.66h.33c.35,0,.66-.12.92-.36.26-.24.5-.55.69-.92.2-.37.34-.76.43-1.17.09-.42.13-.81.13-1.15V4.07c0-.3-.04-.66-.13-1.05-.09-.4-.23-.77-.43-1.12-.19-.35-.43-.65-.69-.89-.26-.24-.57-.35-.92-.35h-.33V0h9.33v.66h-.52c-.31.04-.58.19-.82.46-.24.26-.45.56-.63.89-.17.33-.3.68-.39,1.05-.09.37-.13.72-.13,1.02v30.37l21.82-29.52v-.85c0-.3-.04-.66-.13-1.05-.09-.4-.23-.77-.43-1.12-.19-.35-.43-.65-.69-.89-.27-.24-.57-.35-.92-.35h-.33V0h9.33v.66h-.33c-.35,0-.66.12-.92.35-.26.24-.48.54-.66.89-.17.35-.32.72-.42,1.12-.12.39-.17.75-.17,1.05v35.03c0,.35.05.72.17,1.12.1.4.25.78.42,1.15.18.37.4.69.66.95.27.26.57.39.92.39h.33v.66h-9.33v-.66Z"/><path d="M289.85,42.72h.33c.35,0,.66-.12.92-.36.26-.24.48-.55.66-.92.18-.37.31-.76.39-1.17.09-.42.13-.81.13-1.15V4.07c0-.3-.06-.66-.16-1.05-.11-.4-.26-.77-.43-1.12-.18-.35-.39-.65-.66-.89-.27-.24-.55-.35-.86-.35h-.33V0h33.65v.66h-.52c-.31,0-.57.12-.79.35-.22.24-.4.55-.56.92-.15.37-.27.75-.35,1.15-.09.39-.13.72-.13.98v35.03c0,.35.03.72.1,1.12.07.4.18.78.33,1.15.15.37.35.69.59.95.24.26.51.39.82.39h.52v.66h-9.2v-.66h.59c.3,0,.58-.13.82-.39.24-.27.44-.57.59-.92.16-.35.27-.73.33-1.15.06-.42.1-.81.1-1.15V2.3h-20.05v36.8c0,.35.04.73.13,1.15.09.41.21.8.36,1.15.15.35.35.66.62.92.27.26.57.39.92.39h.33v.66h-9.2v-.66Z"/><path d="M327.21,42.72h.33c.35,0,.66-.12.92-.36.26-.24.48-.55.66-.92.18-.37.31-.76.39-1.17.09-.42.13-.81.13-1.15V4.07c0-.3-.05-.66-.16-1.05-.11-.4-.26-.77-.43-1.12-.18-.35-.39-.65-.66-.89-.27-.24-.55-.35-.86-.35h-.33V0h33.65v.66h-.52c-.31,0-.57.12-.79.35-.22.24-.4.55-.56.92-.15.37-.27.75-.35,1.15-.09.39-.13.72-.13.98v35.03c0,.35.03.72.1,1.12.07.4.18.78.33,1.15.15.37.35.69.59.95.24.26.51.39.82.39h.52v.66h-9.2v-.66h.59c.3,0,.58-.13.82-.39.24-.27.44-.57.59-.92.16-.35.27-.73.33-1.15.06-.42.1-.81.1-1.15V2.3h-20.05v36.8c0,.35.04.73.13,1.15.09.41.21.8.36,1.15.15.35.35.66.62.92.27.26.57.39.92.39h.33v.66h-9.2v-.66Z"/>
+          </g>
+        </svg>
+      </div>
+      <h1 class="hero-title">ЛАКОМАНЬЯК</h1>
+      <p class="hero-sub">Мы спрятали призы в&nbsp;продуктах.<br>Один из&nbsp;них может быть у&nbsp;тебя.</p>
+    </div>
+    <div class="hero-prize-count">
+      <div class="num">500</div>
+      <div class="desc">ценных призов ждут своих победителей</div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M19 12l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="overlap-section">
+    <p class="section-title">Как это работает?</p>
+    <p class="section-desc">Охота за&nbsp;призами — проще простого</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Покупай на&nbsp;Wildberries</div>
+          <div class="step-text">Выбирай новинки ЛУИФИЛИПП на&nbsp;маркетплейсе</div>
+          <a class="btn-wb" href="#" target="_blank">Перейти на WB →</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Открой коробку</div>
+          <div class="step-text">После получения заказа загляни внутрь упаковки</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Узнай свой приз</div>
+          <div class="step-text">Нашёл купон — ты уже победитель. Никакой лотереи, всё сразу</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hr"></div>
+
+  <section class="prizes-section">
+    <p class="section-title">Твои возможные призы</p>
+    <p class="section-desc" style="margin-bottom:28px;">500 купонов, три уровня выигрышей</p>
+
+    <div class="prize-card main">
+      <span class="prize-count-chip">3 шт</span>
+      <div class="prize-tag">Главный приз</div>
+      <div class="prize-name">Коллекция мечты</div>
+      <div class="prize-detail">Серьёзное пополнение арсенала</div>
+      <div class="prize-badges">
+        <span class="prize-badge">100 флаконов</span>
+        <span class="prize-badge">Полноразмерные</span>
+      </div>
+    </div>
+
+    <div class="prize-card">
+      <span class="prize-count-chip">15 шт</span>
+      <div class="prize-tag">Подарочный бокс</div>
+      <div class="prize-name">Боксы с&nbsp;продуктами</div>
+      <div class="prize-detail">Готовый набор для работы и&nbsp;вдохновения</div>
+      <div class="prize-badges">
+        <span class="prize-badge">6 флаконов</span>
+        <span class="prize-badge">sky</span>
+        <span class="prize-badge">electric</span>
+        <span class="prize-badge">ultra</span>
+        <span class="prize-badge">phantom</span>
+        <span class="prize-badge">glass</span>
+        <span class="prize-badge">brown</span>
+      </div>
+    </div>
+
+    <div class="prize-card">
+      <span class="prize-count-chip">482 шт</span>
+      <div class="prize-tag">Промокод</div>
+      <div class="prize-name">Скидки до&nbsp;−50%</div>
+      <div class="prize-detail">Тот самый повод взять ещё больше оттенков</div>
+      <div class="prize-badges">
+        <span class="prize-badge">−30% · 232 шт</span>
+        <span class="prize-badge">−40% · 150 шт</span>
+        <span class="prize-badge">−50% · 100 шт</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="get-section">
+    <p class="section-title">Как забрать приз?</p>
+    <p class="section-desc">Выбери свой способ</p>
+
+    <div class="get-card">
+      <div class="get-icon">🎟</div>
+      <div class="get-title">Если у&nbsp;тебя промокод</div>
+      <div class="get-text">Используй его при оформлении заказа на&nbsp;сайте ЛУИФИЛИПП. Скидка действует на&nbsp;один заказ до&nbsp;20 ноября 2026&nbsp;г., не&nbsp;суммируется с&nbsp;другими акциями.</div>
+      <a class="btn btn-primary" href="https://luiphilipp-gel.ru" target="_blank">Перейти на сайт →</a>
+    </div>
+
+    <div class="get-card">
+      <div class="get-icon">📦</div>
+      <div class="get-title">Если у&nbsp;тебя подарочный бокс</div>
+      <div class="get-text">Сфотографируй купон и&nbsp;отправь менеджеру вместе с&nbsp;контактными данными для проверки. После подтверждения мы отправим приз.</div>
+      
+      <div class="buttons-row">
+        <a class="btn btn-outline" href="#" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg> Telegram
+        </a>
+        <a class="btn btn-outline" href="#" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> MAX
+        </a>
+      </div>
+    </div>
+
+    <div class="get-card">
+      <div class="get-title" style="margin-bottom:4px;">Контакты</div>
+      <p class="section-desc" style="font-size:12px;margin-bottom:16px;">Срок обращения — до&nbsp;15 ноября 2026&nbsp;г.</p>
+
+      <a class="contact-row" href="mailto:luiphilipp-gel@yandex.ru">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">luiphilipp-gel@yandex.ru</div>
+        </div>
+      </a>
+      <a class="contact-row" href="tel:+79896298628">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Телефон</div>
+          <div class="contact-value">+7 989 629-86-28</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="dates-strip">
+    <div class="date-item">
+      <div class="date-label">Начало акции</div>
+      <div class="date-val">15 мая 2026</div>
+    </div>
+    <div class="date-sep">→</div>
+    <div class="date-item">
+      <div class="date-label">Конец акции</div>
+      <div class="date-val">20 ноября 2026</div>
+    </div>
+    <div class="date-sep">·</div>
+    <div class="date-item">
+      <div class="date-label">Обратиться до</div>
+      <div class="date-val">15 ноября 2026</div>
+    </div>
+  </div>
+
+  <section class="rules-section">
+    <p class="section-title" style="margin-bottom:6px;">Важно</p>
+    <p class="section-desc" style="margin-bottom:20px;font-size:13px;">Условия участия в&nbsp;акции</p>
+
+    <div class="badges-row" style="margin-bottom:24px;">
+      <span class="badge">1 купон = 1 приз</span>
+      <span class="badge badge-soft">Купон одноразовый</span>
+      <span class="badge badge-soft">Призы не обменять</span>
+      <span class="badge badge-soft">Промокоды не суммируются</span>
+      <span class="badge badge-soft">Призов ограниченное кол-во</span>
+      <span class="badge badge-soft">Требуется подтверждение</span>
+    </div>
+
+    <div class="rules-list">
+      <div class="rule-item">
+        <div class="rule-dot"></div>
+        <div class="rule-text">Участником может быть любое дееспособное физическое лицо от&nbsp;18 лет</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-dot"></div>
+        <div class="rule-text">Акция не&nbsp;является лотереей. Покупка товара — самостоятельная сделка и&nbsp;не&nbsp;является платой за&nbsp;участие</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-dot"></div>
+        <div class="rule-text">Организатор вправе отказать в&nbsp;выдаче приза при выявлении поддельного купона</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-dot"></div>
+        <div class="rule-text">Стоимость подарков определяется организатором. Условия могут быть уточнены у&nbsp;продавца</div>
+      </div>
+    </div>
+    
+    <button class="btn btn-outline" style="margin-top: 24px;" onclick="document.getElementById('offerModal').style.display='flex'">Читать полные правила (Оферта)</button>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-org">Организатор: ООО «ЛУИ ГРУПП» · ИНН 6167201153</div>
+    <div class="footer-legal">Акция носит рекламный характер и&nbsp;не&nbsp;является лотереей. Покупка товара не&nbsp;является платой за&nbsp;участие. Сроки проведения акции и&nbsp;иные условия могут быть уточнены у&nbsp;продавца.</div>
+  </footer>
+
+</div>
+
+<div id="offerModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('offerModal').style.display='none'">✕</button>
+    <div class="modal-body">
+      <h2 class="section-title" style="text-align:center; margin-bottom:16px;">ПРАВИЛА ПРОВЕДЕНИЯ РЕКЛАМНОЙ АКЦИИ «ЛАКОМАНЬЯК»</h2>
+      
+      <h3>1. Общие положения</h3>
+      <p>1.1. Настоящая акция под названием «ЛАКОМАНЬЯК» (далее — «Акция») является рекламным мероприятием, направленным на привлечение внимания к продукции бренда ЛУИФИЛИПП.</p>
+      <p>1.2. Акция не является лотереей, не содержит элемента риска и проводится в соответствии с законодательством Российской Федерации.</p>
+      <p>1.3. Участие в Акции означает полное согласие Участника с настоящими Правилами.</p>
+      
+      <h3>2. Организатор Акции</h3>
+      <p>2.1. Организатор Акции: ООО «ЛУИ ГРУПП» ИНН: 6167201153.</p>
+      <p>2.2. Организатор осуществляет общее руководство Акцией, формирует призовой фонд и обеспечивает вручение призов.</p>
+      
+      <h3>3. Сроки проведения Акции</h3>
+      <p>3.1. Период проведения Акции: с «15» мая 2026 г. по «20» ноября 2026 г.</p>
+      <p>3.2. Срок обращения за призами: до 15 ноября 2026 года включительно.</p>
+      <p>3.3. Срок действия промокодов: до 20 ноября 2026 года включительно.</p>
+      
+      <h3>4. Условия участия</h3>
+      <p>4.1. Участником Акции может стать любое дееспособное физическое лицо, достигшее 18 лет.</p>
+      <p>4.2. Для участия необходимо:</p>
+      <ul>
+        <li>приобрести акционные товары бренда ЛУИФИЛИПП (гель-лаки и гели для наращивания) на маркетплейсе Wildberries;</li>
+        <li>обнаружить внутри упаковки купон Акции.</li>
+      </ul>
+      <p>4.3. Каждый купон содержит информацию о соответствующем призе.</p>
+      <p>4.4. Один купон даёт право на получение одного приза.</p>
+      
+      <h3>5. Призовой фонд Акции</h3>
+      <p>5.1. Общий призовой фонд Акции составляет 500 (пятьсот) призов.</p>
+      <p>5.2. В состав призового фонда входят:</p>
+      <p>5.2.1. Промокоды на скидку:</p>
+      <ul>
+        <li>30% в количестве 232 шт</li>
+        <li>40% в количестве 150 шт</li>
+        <li>50% в количестве 100 шт</li>
+      </ul>
+      <p>Промокоды являются одноразовыми, не подлежат обмену на денежные средства и не суммируются с другими акциями.</p>
+      <p>5.2.2. Подарочные боксы: 15 (пятнадцать) боксов; каждый бокс содержит 6 (шесть) флаконов продукции (tropical neon 06 – sky cat 05 – neon 08 - sky cat 03 – orange 03 – electric cat 01).</p>
+      <p>5.2.3. Главные призы: 3 (три) набора базовой коллекции; каждый набор включает 100 (сто) полноразмерных флаконов.</p>
+      <p>5.3. Конкретный приз определяется купоном, вложенным в товар.</p>
+      
+      <h3>6. Порядок получения призов</h3>
+      <p>6.1. Для получения приза Участнику необходимо следовать инструкции, указанной на купоне.</p>
+      <p>6.2. Промокоды: используются Участником самостоятельно при оформлении заказа на официальном сайте организации: https://luiphilipp-gel.ru</p>
+      <p>6.3. Подарочные боксы и главные призы: Для получения необходимо предоставить фото купона, направить контактные данные Организатору и пройти проверку подлинности купона.</p>
+      <p>6.4. Передача призов осуществляется после подтверждения Организатором.</p>
+      
+      <h3>7. Ограничения и условия</h3>
+      <p>7.1. Купон действителен только при условии его подлинности.</p>
+      <p>7.2. Купон может быть использован только один раз.</p>
+      <p>7.3. Призы не подлежат обмену на денежный эквивалент или иные товары.</p>
+      <p>7.4. Организатор вправе отказать в выдаче приза в случае выявления факта подделки купона или нарушения Участником настоящих Правил.</p>
+      <p>7.5. Организатор оставляет за собой право вносить изменения в настоящие Правила и досрочно прекратить проведение Акции при условии публикации соответствующей информации.</p>
+      
+      <h3>8. Прочие условия</h3>
+      <p>8.1. Количество призов ограничено призовым фондом Акции.</p>
+      <p>8.2. Покупка товара не является платой за участие в Акции, а является самостоятельной сделкой.</p>
+      <p>8.3. Все спорные вопросы, касающиеся проведения Акции, регулируются в соответствии с законодательством Российской Федерации.</p>
+      
+      <h3>9. Контактная информация</h3>
+      <p>По вопросам участия в Акции: luiphilipp-gel@yandex.ru<br>+7 989 629 8628</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
